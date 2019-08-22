@@ -33,6 +33,8 @@ ENV BITNAMI_APP_NAME="elasticsearch" \
     NAMI_PREFIX="/.nami" \
     PATH="/opt/bitnami/java/bin:/opt/bitnami/elasticsearch/bin:$PATH"
 
+RUN /sbin/sysctl -w vm.max_map_count=262144 && /sbin/sysctl -w fs.file-max=65536
+
 EXPOSE 9200 9300
 
 USER 1001

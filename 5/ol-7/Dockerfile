@@ -34,6 +34,8 @@ ENV BITNAMI_APP_NAME="elasticsearch" \
 
 EXPOSE 9200 9300
 
+RUN /sbin/sysctl -w vm.max_map_count=262144 && /sbin/sysctl -w fs.file-max=65536
+
 USER 1001
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/run.sh" ]
