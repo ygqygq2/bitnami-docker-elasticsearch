@@ -387,7 +387,7 @@ elasticsearch_initialize() {
     fi
 
     debug "Ensuring expected directories/files exist..."
-    for dir in "$ELASTICSEARCH_TMPDIR" "$ELASTICSEARCH_DATADIR" "$ELASTICSEARCH_LOGDIR" "$ELASTICSEARCH_BASEDIR/plugins" "$ELASTICSEARCH_BASEDIR/modules" "$ELASTICSEARCH_CONFDIR/scripts"; do
+    for dir in "$ELASTICSEARCH_TMPDIR" "$ELASTICSEARCH_DATADIR" "$ELASTICSEARCH_LOGDIR" "$ELASTICSEARCH_BASEDIR/plugins" "$ELASTICSEARCH_BASEDIR/modules" "$ELASTICSEARCH_CONFDIR"; do
         ensure_dir_exists "$dir"
         am_i_root && chown "$ELASTICSEARCH_DAEMON_USER:$ELASTICSEARCH_DAEMON_GROUP" "$dir"
     done
