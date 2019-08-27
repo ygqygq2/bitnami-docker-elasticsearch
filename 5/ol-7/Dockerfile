@@ -13,7 +13,7 @@ RUN . ./libcomponent.sh && component_unpack "java" "1.8.222-0" --checksum a90f4c
 RUN . ./libcomponent.sh && component_unpack "elasticsearch" "5.6.16-0" --checksum 4726400c203fbec0281f058bb6bfc3173741e43e76e8a036a1c86b116624ac43
 
 COPY rootfs /
-RUN /postunpack.sh
+RUN /postunpack.sh && chown -R 1001 /opt/bitnami/elasticsearch/{config,plugins}
 ENV BITNAMI_APP_NAME="elasticsearch" \
     BITNAMI_IMAGE_VERSION="5.6.16-ol-7-r0" \
     ELASTICSEARCH_BIND_ADDRESS="" \
